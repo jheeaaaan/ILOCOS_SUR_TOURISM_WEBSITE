@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquiry Form — Ilocos Sur Tourism</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">ILOCOS SUR</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <nav class="navbar-main scrolled">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand-wrap">
+        <div class="nav-logo-text">
+          <div class="province">Province of</div>
+          <div class="name">Ilocos Sur</div>
+        </div>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="destinations.html" class="nav-link">Destinations</a></div>
+        <div class="nav-item"><a href="festivals.html" class="nav-link">Festivals</a></div>
+        <div class="nav-item"><a href="food.html" class="nav-link">Food</a></div>
+        <div class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></div>
+        <div class="nav-item"><a href="tips.html" class="nav-link">Travel Tips</a></div>
+        <div class="nav-item"><a href="inquiry.html" class="nav-link active">Inquiry</a></div>
+      </div>
+      <button class="navbar-toggler" id="nav-toggler"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('images/inquiry.png')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> / Inquiry</div>
+      <h1 class="page-hero-title">Plan Your Visit</h1>
+    </div>
+  </div>
+
+  <section class="section section-cream">
+    <div class="container">
+      <div class="two-col two-col-wide two-col-start" style="grid-template-columns:1fr 1.6fr">
+
+        <div class="reveal">
+          <p class="section-eyebrow">Get in Touch</p>
+          <h2 class="section-title title-sm">We're Here to Help</h2>
+          <div class="section-line line-left"></div>
+          <p class="body-text mb-4">
+            Planning a trip to Ilocos Sur? Our tourism team is happy to assist with itinerary recommendations, accommodation advice, and destination guides. Fill out the form and we'll respond within 24 hours.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="contact-row">
+              <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="contact-label">Address</div>
+                <div class="contact-value">Provincial Capitol Building, Vigan City, Ilocos Sur, Philippines</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">(077) 722-1234<br>(077) 722-5678</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">tourism@ilocossur.gov.ph<br>info@visitilocossur.com</div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <div class="contact-label">Office Hours</div>
+                <div class="contact-value">Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday: 8:00 AM – 12:00 NN</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dark-panel">
+            <h4 class="panel-title-sm">Follow Us</h4>
+            <p class="body-text-white mb-3">Stay updated with the latest events, festivals, and travel news from Ilocos Sur.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="form-box">
+            <h3 class="form-title">Send an Inquiry</h3>
+            <p class="form-note">All fields marked with * are required.</p>
+
+            <div id="form-success" class="success-msg">
+              <i class="bi bi-check-circle-fill success-icon"></i>
+              <strong class="success-title">Inquiry Sent Successfully!</strong>
+              <p class="success-sub">Thank you! Our tourism team will respond within 24 hours.</p>
+            </div>
+
+            <form id="inquiry-form" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="full-name">Full Name *</label>
+                <input type="text" id="full-name" name="full-name" class="form-control" placeholder="e.g. April Jhean Maglangit">
+                <div class="invalid-feedback">Full name is required.</div>
+              </div>
+
+              <div class="info-grid-form">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com">
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact">Contact Number *</label>
+                  <input type="tel" id="contact" name="contact" class="form-control" placeholder="09XXXXXXXXX">
+                  <div class="invalid-feedback">Please enter a valid phone number (numbers only).</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="destination">Select Destination *</label>
+                <select id="destination" name="destination" class="form-control">
+                  <option value="">— Choose a destination —</option>
+                </select>
+                <div class="invalid-feedback">Please select a destination.</div>
+              </div>
+
+              <div class="info-grid-form">
+                <div class="form-group">
+                  <label class="form-label" for="travel-date">Travel Date *</label>
+                  <input type="date" id="travel-date" name="travel-date" class="form-control">
+                  <div class="invalid-feedback">Please select a travel date.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="visitors">Number of Visitors *</label>
+                  <input type="number" id="visitors" name="visitors" class="form-control" min="1" placeholder="1">
+                  <div class="invalid-feedback">At least 1 visitor is required.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Your Message *</label>
+                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about your trip plans, questions, or special requests..."></textarea>
+                <div class="invalid-feedback">Please enter your message.</div>
+              </div>
+
+              <p class="form-privacy"><i class="bi bi-shield-check"></i> Your information is kept private and will only be used to respond to your inquiry.</p>
+
+              <button type="submit" class="btn-gold btn-full">
+                <i class="bi bi-send-fill"></i> &nbsp; Send Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm section-mid">
+    <div class="container">
+      <div class="section-header reveal mb-4">
+        <p class="section-eyebrow">Find Us</p>
+        <h2 class="section-title title-lg">Provincial Tourism Office</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="map-embed reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.6!2d120.3870!3d17.5747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x338742ef4f2f3741%3A0x4e7c8f4e9cdee9a5!2sVigan%20City%2C%20Ilocos%20Sur!5e0!3m2!1sen!2sph!4v1710000000001" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4">
+          <div class="footer-logo">Ilocos Sur</div>
+          <p class="footer-tagline">The Cradle of Philippine Civilization</p>
+          <div class="footer-social mb-3">
+            <a href="https://www.facebook.com/ThePGIS1818/" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/explore/locations/256349588/welcome-to-ilocos-sur/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/gmanews/status/1958445301339238575" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com/@ThePGIS1818" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="footer-newsletter">
+            <p class="footer-newsletter-title">Subscribe to our newsletter</p>
+            <div class="newsletter-form">
+              <input type="email" class="newsletter-input" placeholder="Your email address">
+              <button class="newsletter-btn">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About the Province</a></li>
+            <li><a href="destinations.html">Tourist Destinations</a></li>
+            <li><a href="festivals.html">Festivals &amp; Culture</a></li>
+            <li><a href="food.html">Food &amp; Delicacies</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="footer-heading">Visitor Info</h4>
+          <ul class="footer-links">
+            <li><a href="tips.html">Travel Tips</a></li>
+            <li><a href="tips.html#transport">How to Get There</a></li>
+            <li><a href="tips.html#best-time">Best Time to Visit</a></li>
+            <li><a href="tips.html#budget">Budget Guide</a></li>
+            <li><a href="inquiry.html">Make an Inquiry</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="bi bi-geo-alt me-1"></i>Provincial Capitol, Vigan City</a></li>
+            <li><a href="tel:+637712234"><i class="bi bi-telephone me-1"></i>(077) 722-1234</a></li>
+            <li><a href="mailto:tourism@ilocossur.gov.ph"><i class="bi bi-envelope me-1"></i>tourism@ilocossur.gov.ph</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <span>© 2025 Ilocos Sur Tourism. All rights reserved.</span>
+        <span>ILOCOS SUR TRAVEL SITE</span>
+      </div>
+    </div>
+</footer>
+
+  <button id="back-to-top"><i class="bi bi-arrow-up"></i></button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

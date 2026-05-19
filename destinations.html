@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tourist Destinations — Ilocos Sur</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">ILOCOS SUR</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <nav class="navbar-main scrolled">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand-wrap">
+        <div class="nav-logo-text">
+          <div class="province">Province of</div>
+          <div class="name">Ilocos Sur</div>
+        </div>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="destinations.html" class="nav-link active">Destinations</a></div>
+        <div class="nav-item"><a href="festivals.html" class="nav-link">Festivals</a></div>
+        <div class="nav-item"><a href="food.html" class="nav-link">Food</a></div>
+        <div class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></div>
+        <div class="nav-item"><a href="tips.html" class="nav-link">Travel Tips</a></div>
+        <div class="nav-item"><a href="inquiry.html" class="nav-link">Inquiry</a></div>
+      </div>
+      <button class="navbar-toggler" id="nav-toggler"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <div class="page-hero hero-medium">
+    <div class="page-hero-bg" style="background-image:url('images/destination.png')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> / Destinations</div>
+      <h1 class="page-hero-title">Tourist Destinations</h1>
+    </div>
+  </div>
+
+  <section class="section-sm section-cream">
+    <div class="container">
+      <div class="section-header reveal mb-4">
+        <p class="section-eyebrow">Explore Ilocos Sur</p>
+        <h2 class="section-title">Discover Our Destinations</h2>
+        <div class="section-line"></div>
+        <p class="section-desc">From UNESCO heritage streets to hidden waterfalls, mountain treks, and pristine beaches — find your perfect destination.</p>
+      </div>
+      <div class="search-wrap reveal">
+        <input type="text" id="dest-search" class="search-input" placeholder="Search by name, city, or category..." />
+        <i class="bi bi-search search-icon"></i>
+      </div>
+      <div class="filter-wrap reveal">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Beach">🏖️ Beach</button>
+        <button class="filter-btn" data-filter="Mountain">⛰️ Mountain</button>
+        <button class="filter-btn" data-filter="Waterfall">💧 Waterfall</button>
+        <button class="filter-btn" data-filter="Historical Site">🏛️ Historical Site</button>
+        <button class="filter-btn" data-filter="Island">🏝️ Island</button>
+        <button class="filter-btn" data-filter="Food Destination">🍽️ Food Destination</button>
+        <button class="filter-btn" data-filter="Adventure">🧗 Adventure</button>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="dest-grid"></div>
+      <div id="no-results" class="no-results">
+        <i class="bi bi-search" style="font-size:3rem;display:block;margin-bottom:1rem"></i>
+        No destinations found for your search. Try different keywords or filters.
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container centered max-700 reveal">
+      <p class="section-eyebrow eyebrow-light">Ready to Explore?</p>
+      <h2 class="section-title title-white">Plan Your Ilocos Sur Adventure</h2>
+      <div class="section-line"></div>
+      <p class="desc-white mb-4">Have questions about any destination? Send us an inquiry and our team will help you plan the perfect trip.</p>
+      <a href="inquiry.html" class="btn-gold">Make an Inquiry</a>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="dest-modal">
+    <div class="modal-box modal-relative">
+      <button class="modal-close" onclick="closeModal()"><i class="bi bi-x"></i></button>
+      <img id="modal-img" src="" alt="" class="modal-img">
+      <div class="modal-body">
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-location" id="modal-location"></p>
+        <div class="modal-grid">
+          <div class="modal-info-item">
+            <div class="modal-info-label">Entrance Fee</div>
+            <div class="modal-info-value" id="modal-fee"></div>
+          </div>
+          <div class="modal-info-item">
+            <div class="modal-info-label">Opening Hours</div>
+            <div class="modal-info-value" id="modal-hours"></div>
+          </div>
+          <div class="modal-info-item">
+            <div class="modal-info-label">Best Time to Visit</div>
+            <div class="modal-info-value" id="modal-best-time"></div>
+          </div>
+          <div class="modal-info-item">
+            <div class="modal-info-label">Activities</div>
+            <ul id="modal-activities" class="body-text-sm mt-1"></ul>
+          </div>
+        </div>
+        <h4 class="timeline-title mb-2">About</h4>
+        <p class="modal-desc" id="modal-desc"></p>
+        <h4 class="timeline-title mb-2">Travel Tips</h4>
+        <p class="modal-desc" id="modal-tips"></p>
+        <div class="modal-actions">
+          <a href="inquiry.html" class="btn-gold">Book This Destination</a>
+          <button onclick="closeModal()" class="btn-dark">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4">
+          <div class="footer-logo">Ilocos Sur</div>
+          <p class="footer-tagline">The Cradle of Philippine Civilization</p>
+          <div class="footer-social mb-3">
+            <a href="https://www.facebook.com/ThePGIS1818/" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/explore/locations/256349588/welcome-to-ilocos-sur/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/gmanews/status/1958445301339238575" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com/@ThePGIS1818" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="footer-newsletter">
+            <p class="footer-newsletter-title">Subscribe to our newsletter</p>
+            <div class="newsletter-form">
+              <input type="email" class="newsletter-input" placeholder="Your email address">
+              <button class="newsletter-btn">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About the Province</a></li>
+            <li><a href="destinations.html">Tourist Destinations</a></li>
+            <li><a href="festivals.html">Festivals &amp; Culture</a></li>
+            <li><a href="food.html">Food &amp; Delicacies</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="footer-heading">Visitor Info</h4>
+          <ul class="footer-links">
+            <li><a href="tips.html">Travel Tips</a></li>
+            <li><a href="tips.html#transport">How to Get There</a></li>
+            <li><a href="tips.html#best-time">Best Time to Visit</a></li>
+            <li><a href="tips.html#budget">Budget Guide</a></li>
+            <li><a href="inquiry.html">Make an Inquiry</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="bi bi-geo-alt me-1"></i>Provincial Capitol, Vigan City</a></li>
+            <li><a href="tel:+637712234"><i class="bi bi-telephone me-1"></i>(077) 722-1234</a></li>
+            <li><a href="mailto:tourism@ilocossur.gov.ph"><i class="bi bi-envelope me-1"></i>tourism@ilocossur.gov.ph</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <span>© 2025 Ilocos Sur Tourism. All rights reserved.</span>
+        <span>ILOCOS SUR TRAVEL SITE</span>
+      </div>
+    </div>
+</footer>
+
+  <button id="back-to-top"><i class="bi bi-arrow-up"></i></button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
