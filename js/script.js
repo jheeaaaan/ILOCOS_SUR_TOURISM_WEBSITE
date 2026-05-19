@@ -5,27 +5,14 @@ window.addEventListener('load', () => {
   }, 1500);
 });
 
+
 const navbarMain = document.querySelector('.navbar-main');
-const navToggler = document.querySelector('.nav-toggler');
-const navLinks = document.querySelector('.nav-links');
-const navOverlay = document.querySelector('.nav-overlay');
 
 window.addEventListener('scroll', () => {
   if (navbarMain) navbarMain.classList.toggle('scrolled', window.scrollY > 60);
   const btt = document.getElementById('back-to-top');
   if (btt) btt.classList.toggle('show', window.scrollY > 400);
 });
-
-if (navToggler && navLinks) {
-  navToggler.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    navOverlay?.classList.toggle('show');
-  });
-  navOverlay?.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navOverlay.classList.remove('show');
-  });
-}
 
 // Mobile: tap nav-link with chevron to expand dropdown
 document.querySelectorAll(".nav-links .nav-link").forEach(function(link) {
@@ -408,28 +395,22 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const toggler = document.querySelector(".navbar-toggler");
+  const toggler = document.querySelector(".navbar-toggler"); // matches id="nav-toggler" class="navbar-toggler"
   const navLinks = document.querySelector(".nav-links");
   const overlay = document.querySelector(".nav-overlay");
 
   if (toggler && navLinks) {
-
     toggler.addEventListener("click", () => {
       navLinks.classList.toggle("open");
-
-      if (overlay) {
-        overlay.classList.toggle("show");
-      }
+      if (overlay) overlay.classList.toggle("show");
     });
 
-    // close when clicking outside
     if (overlay) {
       overlay.addEventListener("click", () => {
         navLinks.classList.remove("open");
-        overlay.classList.remove("show");
+        if (overlay) overlay.classList.remove("show");
       });
     }
-
   }
 
 });
