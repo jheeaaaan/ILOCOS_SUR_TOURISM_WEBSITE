@@ -405,3 +405,31 @@ document.querySelectorAll('.nav-link').forEach(link => {
   const href = link.getAttribute('href') || '';
   if (href === currentPage) link.classList.add('active');
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const toggler = document.querySelector(".navbar-toggler");
+  const navLinks = document.querySelector(".nav-links");
+  const overlay = document.querySelector(".nav-overlay");
+
+  if (toggler && navLinks) {
+
+    toggler.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+
+      if (overlay) {
+        overlay.classList.toggle("show");
+      }
+    });
+
+    // close when clicking outside
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        overlay.classList.remove("show");
+      });
+    }
+
+  }
+
+});
